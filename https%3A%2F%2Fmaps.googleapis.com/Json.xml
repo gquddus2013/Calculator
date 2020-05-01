@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="Json" path="/maps/api/geocode/{format}" id="7cd388ad-923c-457e-85dc-e657ac2c6a18" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="7cd388ad-923c-457e-85dc-e657ac2c6a18fileName">Json</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter>
+      <con:name>format</con:name>
+      <con:value>xml</con:value>
+      <con:style>TEMPLATE</con:style>
+      <con:default>xml</con:default>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="Json" id="b08efb73-3142-41c0-ae90-2e220b72a033" method="GET">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>address</con:name>
+        <con:value>Boston</con:value>
+        <con:style>QUERY</con:style>
+        <con:default>Boston</con:default>
+        <con:path xsi:nil="true"/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>key</con:name>
+        <con:value>AIzaSyAlaKTTdDHazwY6WoS8UdlnDyMHekvFsZo</con:value>
+        <con:style>QUERY</con:style>
+        <con:default>AIzaSyAlaKTTdDHazwY6WoS8UdlnDyMHekvFsZo</con:default>
+        <con:path xsi:nil="true"/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="FAULT">
+      <con:mediaType>text/html; charset=UTF-8</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:element>html</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json; charset=UTF-8</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:json="https://maps.googleapis.com/maps/api/geocode/json">json:Response</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json;charset=utf-8</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:json="https://maps.googleapis.com/maps/api/geocode/json">json:Response</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType xsi:nil="true"/>
+      <con:status>0</con:status>
+      <con:params/>
+      <con:element>data</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="851bd284-86b4-49b5-a6c3-1067654ee85b" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://maps.googleapis.com</con:endpoint>
+      <con:request/>
+      <con:originalUri>https://maps.googleapis.com/maps/api/geocode/</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="address" value="Boston"/>
+        <con:entry key="key" value="AIzaSyAlaKTTdDHazwY6WoS8UdlnDyMHekvFsZo"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>address</con:entry>
+        <con:entry>key</con:entry>
+        <con:entry>format</con:entry>
+      </con:parameterOrder>
+      <con:environmentSpec>
+        <con:entry environmentId="a2943cc3-af6d-4744-8045-8a947b1900f2">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="a2943cc3-af6d-4744-8045-8a947b1900f2">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="a2943cc3-af6d-4744-8045-8a947b1900f2">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

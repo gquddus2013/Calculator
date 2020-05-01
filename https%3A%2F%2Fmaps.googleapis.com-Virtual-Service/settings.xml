@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockService id="3ea5d5a6-29a3-47a8-a025-e51ecf56f02d" port="8086" path="/" host="localhost" name="https://maps.googleapis.com Virtual Service" routeModeEnabled="false" routeEndpoint="https://maps.googleapis.com" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="3ea5d5a6-29a3-47a8-a025-e51ecf56f02dfileName">https%3A%2F%2Fmaps.googleapis.com-Virtual-Service</con:setting>
+  </con:settings>
+  <con:properties/>
+  <con:constraints>
+    <con:congestion>0</con:congestion>
+    <con:inputBandwidth>-1</con:inputBandwidth>
+    <con:outputBandwidth>-1</con:outputBandwidth>
+    <con:maxThreadPoolCapacity>20</con:maxThreadPoolCapacity>
+    <con:coreThreadPoolCapacity>5</con:coreThreadPoolCapacity>
+    <con:minLatency>600</con:minLatency>
+    <con:virtError>
+      <con:start>0</con:start>
+      <con:endless>true</con:endless>
+    </con:virtError>
+  </con:constraints>
+  <con:headerValidator type="NONE"/>
+</con:restMockService>

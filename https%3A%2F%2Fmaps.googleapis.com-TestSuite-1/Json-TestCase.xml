@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="d190c1a1-8e50-4ab9-a1e2-bc96d46186dd" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Json TestCase" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" zephyrTestName="" zephyrTestId="" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>The test case generated for the REST resource [Json] located at [/maps/api/geocode/json]</con:description>
+  <con:settings>
+    <con:setting id="IncludeOverview">true</con:setting>
+    <con:setting id="IncludeResults">true</con:setting>
+    <con:setting id="FlowLayout">true</con:setting>
+    <con:setting id="ErrorDetails">true</con:setting>
+    <con:setting id="IncludeCoverage">true</con:setting>
+    <con:setting id="d190c1a1-8e50-4ab9-a1e2-bc96d46186ddfileName">Json-TestCase</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datasource" name="DataSource" id="b6715d02-dbe8-4df6-9847-9dd14bc916ae">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JDBC">
+        <con:configuration>
+          <driver>org.postgresql.Driver</driver>
+          <connstr>jdbc:postgresql://127.0.0.1:8082/locations?user=postgres&amp;password=PASS_VALUE</connstr>
+          <pass>Yduhav2w8!!</pass>
+          <Connection>&lt;None></Connection>
+          <query>Select google_maps.city as google_maps_city, google_maps.state as google_maps_state
+From google_maps</query>
+          <fetchSize/>
+          <stored-procedure>false</stored-procedure>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>google_maps_city</con:property>
+      <con:property>google_maps_state</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Request 1" id="dfa8deb1-e341-43dd-99bb-f05cc526f73f">
+    <con:settings/>
+    <con:config service="https://maps.googleapis.com" resourcePath="/maps/api/geocode/{format}" methodName="Json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Request 1" id="851bd284-86b4-49b5-a6c3-1067654ee85b" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://maps.googleapis.com</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://maps.googleapis.com/maps/api/geocode/json</con:originalUri>
+        <con:assertion type="JsonPath Match" id="3665b39c-b62a-4db5-bb8b-712b4124eb0f" name="Match content of [long_name]" disabled="true">
+          <con:configuration>
+            <path>$['results'][0]['address_components'][2]['long_name']</path>
+            <content>${DataSource#google_maps_state}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Valid HTTP Status Codes" id="d2988ff2-1847-4e2e-9941-dcb45d082ec5" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200,201,204</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="b29ccf6f-4e92-4216-ab6a-b81a5a537684" name="Response SLA">
+          <con:configuration>
+            <SLA>500</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="address" value="Ghulam"/>
+          <con:entry key="format" value="json"/>
+          <con:entry key="key" value="AIzaSyAlaKTTdDHazwY6WoS8UdlnDyMHekvFsZo"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>address</con:entry>
+          <con:entry>key</con:entry>
+          <con:entry>format</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="b8592abf-0c69-4f17-b6fa-d057a81a44ab">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="1920d41c-7712-49ee-8d0d-6860df5d7cf2">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="a2943cc3-af6d-4744-8045-8a947b1900f2">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="7eb5f35d-69e5-4c1b-9d3e-57936e818590">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>DataSource</dataSourceStep>
+      <targetStep>Request 1</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>Cookie</con:name>
+      <con:value/>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>b6715d02-dbe8-4df6-9847-9dd14bc916ae</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="a2943cc3-af6d-4744-8045-8a947b1900f2">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

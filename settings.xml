@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ad7c3c52-c240-4230-98fd-8cdc3fee373d" created="3.1.0" activeEnvironment="Virt" name="REST Project 88" updated="3.2.5" encryptionMode="Not encrypted" resourceRoot="" compositeProjectFormat="1.3" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value="PDF"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="true"/>
+  <con:entry key="Export All" value="true"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Slack Channel(s)" value=""/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Test Suite Tags" value=""/>
+  <con:entry key="Select Report Type" value="Test case printable report"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Test Suite" value="https://maps.googleapis.com TestSuite 1"/>
+  <con:entry key="Run in-process" value="false"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Open Report" value="true"/>
+  <con:entry key="Test Case Tags" value=""/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Test Case" value="Json TestCase"/>
+  <con:entry key="Slack Access Token" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value="C:\Program Files\SmartBear\ReadyAPI-3.1.0\bin"/>
+  <con:entry key="Environment" value="Default environment"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value="C:\Users\Ghulam.Quddus\Desktop\Reports"/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting>
+    <con:setting id="ad7c3c52-c240-4230-98fd-8cdc3fee373dfileName">REST-Project-88</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:requirements/>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting/>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to SoapUI Pro tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:environment id="b8592abf-0c69-4f17-b6fa-d057a81a44ab" name="Virt">
+    <con:service type="REST" name="https://maps.googleapis.com">
+      <con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://localhost:8086/</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="1920d41c-7712-49ee-8d0d-6860df5d7cf2" name="local">
+    <con:service type="REST" name="https://maps.googleapis.com">
+      <con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="">http://localhost:8086/</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="a2943cc3-af6d-4744-8045-8a947b1900f2" name="Dev">
+    <con:service type="REST" name="https://maps.googleapis.com">
+      <con:endpoint authProfile="No Authorization"/>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:authRepository/>
+  <con:environmentSpec>
+    <con:entry environmentId="a2943cc3-af6d-4744-8045-8a947b1900f2">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+  <con:tags/>
+</con:soapui-project>
